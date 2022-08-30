@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script>
+        function Process() {
+            var a = parseInt(document.getElementById("A").value);
+            var b = parseInt(document.getElementById("B").value);
+            var oper = document.getElementById("oper").value;
+            var plus = document.getElementById("plus").value;
+            var sub = document.getElementById("sub").value;
+            var multiple = document.getElementById("multiple").value;
+            var divide = document.getElementById("divide").value;
+
+            if (oper == plus) {
+                var c = a+b;
+            }else if (oper == sub) {
+                var c = a-b;
+            } else if (oper == multiple){
+                var c = a*b;
+            }else if (oper == divide){
+                var c = a/b;
+            }
+            document.getElementById("C").value= c;
+        }
+
+        window.onload = function () {
+            var ss = document.getElementById("Go");
+            ss.onclick = Process;
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <input type="text" id="A">
+
+        <input list="operation" id="oper" style="width: 30px; font-size: 15px;">
+        <datalist id="operation">
+            <option id="plus">+</option>
+            <option id="sub">-</option>
+            <option id="multiple">*</option>
+            <option id="divide">/</option>
+        </datalist>
+
+        <input type="text" id="B"><label> =</label>
+        <input type="text" id="C">
+        <input type="button" id="Go" value="compute">
+    </form>
+</body>
+
+</html>
